@@ -21,7 +21,9 @@ Then(/^I should see a flash message saying (.*)$/, async (message) => {
 Before(async () => {
     await step('my step name', async (s1) => {
         s1.label('foo', 'bar')
+        s1.owner('Boris The Blade')
         await s1.step('my child step name', async (s2) => {
+            s2.issue("FOO-666", "https://example.org/issue/{}")
             s2.attach("important data1",  "plain/text")
             s2.attach("important data2",  "plain/text")
         })
